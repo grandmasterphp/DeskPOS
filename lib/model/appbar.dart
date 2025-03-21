@@ -45,7 +45,7 @@ PreferredSizeWidget appBarr = AppBar(
       width: 290,
       child: ListTile(
         leading: CircleAvatar(
-          child: Text('H'),
+          child: Text('S'),
         ),
         title: Text(
           'Somto Onyeagusi',
@@ -54,7 +54,7 @@ PreferredSizeWidget appBarr = AppBar(
           ),
         ),
         subtitle: Text(
-          'Somtoonyeagusi@gmail.com',
+          'Cashier',
           overflow: TextOverflow.ellipsis,
         ),
         dense: true,

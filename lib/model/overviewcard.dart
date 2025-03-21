@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 
 class OverviewCard extends StatelessWidget {
-  OverviewCard({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.amount,
-    required this.predictionAmount,
-    required this.predictionIcon,
-    required this.monthEndComparison,
-  });
+  const OverviewCard(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.amount,
+      required this.predictionIcon,
+      required this.monthEndComparison,
+      required this.cardColorr});
 
-  IconData icon;
-  String title;
-  String amount;
-  IconData predictionIcon;
-  String predictionAmount;
-  String monthEndComparison;
+  final IconData icon;
+  final String title;
+  final String amount;
+  final IconData predictionIcon;
+  final String monthEndComparison;
+  final Color cardColorr;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 1,
-      color: Colors.white,
+      color: cardColorr,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
         child: Column(
@@ -75,17 +74,6 @@ class OverviewCard extends StatelessWidget {
                                             Icons.arrow_downward
                                         ? Colors.white
                                         : const Color.fromARGB(255, 4, 125, 8)),
-                                Text(
-                                  predictionAmount,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          predictionIcon == Icons.arrow_downward
-                                              ? Colors.white
-                                              : const Color.fromARGB(
-                                                  255, 4, 125, 8)),
-                                )
                               ],
                             ),
                           ),
@@ -108,7 +96,7 @@ class OverviewCard extends StatelessWidget {
                 ),
                 const Text(
                   ' than last month',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.grey, fontSize: 8),
                 )
               ],
             )

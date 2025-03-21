@@ -1,10 +1,8 @@
-import 'package:cloudfinance/constants/footer.dart';
-import 'package:cloudfinance/model/appbar.dart';
-import 'package:cloudfinance/model/barchart.dart';
-import 'package:cloudfinance/model/overviewcard.dart';
-import 'package:cloudfinance/model/totalsavings.dart';
-import 'package:cloudfinance/model/transactionhistory.dart';
 import 'package:flutter/material.dart';
+import 'package:ibidawinery/model/appbar.dart';
+import 'package:ibidawinery/model/barchart.dart';
+import 'package:ibidawinery/model/overviewcard.dart';
+import 'package:ibidawinery/model/totalsavings.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -13,81 +11,65 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBarr,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 5,
-                ),
-                const Row(
+        body: Padding(
+          padding:
+              const EdgeInsets.only(top: 15.0, right: 0, left: 10, bottom: 5),
+          child: Stack(
+            children: [
+              Positioned(
+                top: 0,
+                left: 0,
+                width: MediaQuery.of(context).size.width * 0.57,
+                height: MediaQuery.of(context).size.height,
+                child: Column(
                   children: [
-                    Text(
-                      'Overview',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    Flexible(
-                      child: OverviewCard(
-                          icon: Icons.currency_exchange_rounded,
-                          title: ' Earnings',
-                          amount: '\$928.40',
-                          predictionAmount: '12.8%',
-                          predictionIcon: Icons.arrow_upward,
-                          monthEndComparison: '+\$118'),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Flexible(
-                      child: OverviewCard(
-                          icon: Icons.shopping_cart_outlined,
-                          title: ' Spendings',
-                          amount: '\$169.43',
-                          predictionAmount: '3.1%',
-                          predictionIcon: Icons.arrow_downward,
-                          monthEndComparison: '-\$5.2'),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Flexible(
-                      child: OverviewCard(
-                        icon: Icons.savings_outlined,
-                        title: ' Savings',
-                        amount: '\$406.27',
-                        predictionAmount: '8.2%',
-                        predictionIcon: Icons.arrow_upward,
-                        monthEndComparison: '+\$33.3',
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.22,
+                      child: GridView(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4, childAspectRatio: 1.3),
+                        children: const [
+                          Flexible(
+                            child: OverviewCard(
+                                cardColorr: Color.fromRGBO(201, 202, 238, 1),
+                                icon: Icons.currency_exchange_rounded,
+                                title: ' Earnings',
+                                amount: '\$928.40',
+                                predictionIcon: Icons.arrow_upward,
+                                monthEndComparison: '+\$118'),
+                          ),
+                          Flexible(
+                            child: OverviewCard(
+                                cardColorr: Color.fromRGBO(250, 194, 217, 1),
+                                icon: Icons.shopping_cart_outlined,
+                                title: ' Spendings',
+                                amount: '\$169.43',
+                                predictionIcon: Icons.arrow_downward,
+                                monthEndComparison: '-\$5.2'),
+                          ),
+                          Flexible(
+                            child: OverviewCard(
+                              cardColorr: Color.fromRGBO(195, 233, 222, 1),
+                              icon: Icons.savings_outlined,
+                              title: ' Savings',
+                              amount: '\$406.27',
+                              predictionIcon: Icons.arrow_upward,
+                              monthEndComparison: '+\$33.3',
+                            ),
+                          ),
+                          Flexible(
+                            child: OverviewCard(
+                                cardColorr: Color.fromRGBO(240, 200, 207, 1),
+                                icon: Icons.savings,
+                                title: ' Investment',
+                                amount: '\$854.50',
+                                predictionIcon: Icons.arrow_upward,
+                                monthEndComparison: '+\$78.5'),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Flexible(
-                      child: OverviewCard(
-                          icon: Icons.savings,
-                          title: ' Investment',
-                          amount: '\$1,854.08',
-                          predictionAmount: '9.2',
-                          predictionIcon: Icons.arrow_upward,
-                          monthEndComparison: '+\$78.5'),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
                     Flexible(
                         flex: 3,
                         child: Card(
@@ -96,6 +78,12 @@ class FirstPage extends StatelessWidget {
                             padding: const EdgeInsets.all(10.0),
                             child: Column(
                               children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const SizedBox(
+                                  height: 50,
+                                ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -179,37 +167,24 @@ class FirstPage extends StatelessWidget {
                             ),
                           ),
                         )),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    const Flexible(
-                        flex: 2,
-                        child: SizedBox(
-                          height: 370,
-                          child: Card(
-                              color: Colors.white,
-                              child: SizedBox(child: TotalSavings())),
-                        ))
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                // Latest Transactions
-                const Row(
+              ),
+              Positioned(
+                top: 0,
+                right: 0,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.9,
+                child: const Column(
                   children: [
-                    Flexible(
-                        flex: 6,
-                        child: Card(
-                          color: Colors.white,
-                          child: TransactionHistory(),
-                        )),
+                    Card(
+                        color: Colors.white,
+                        child: SizedBox(child: TotalSavings())),
                   ],
                 ),
-
-                const Footer()
-              ],
-            ),
+              )
+              // Latest Transactions
+            ],
           ),
         ));
   }
