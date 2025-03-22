@@ -1,3 +1,3 @@
-# cloudfinance
+# DeskPOS
 
 A new Flutter project.

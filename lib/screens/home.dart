@@ -1,6 +1,6 @@
-import 'package:cloudfinance/constants/pages.dart';
-import 'package:cloudfinance/constants/sidemenu.dart';
 import 'package:flutter/material.dart';
+import 'package:ibidawinery/constants/pages.dart';
+import 'package:ibidawinery/constants/sidemenu.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
                                 color: Colors.deepOrange,
                               )),
                               TextSpan(
-                                  text: 'CloudFinance',
+                                  text: 'IbidaWinery',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500))

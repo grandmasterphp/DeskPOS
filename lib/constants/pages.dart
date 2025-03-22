@@ -1,13 +1,13 @@
-import 'package:cloudfinance/screens/eightPage.dart';
-import 'package:cloudfinance/screens/fifthpage.dart';
-import 'package:cloudfinance/screens/firstpage.dart';
-import 'package:cloudfinance/screens/fourthpage.dart';
-import 'package:cloudfinance/screens/ninethpage.dart';
-import 'package:cloudfinance/screens/secondpage.dart';
-import 'package:cloudfinance/screens/seventhpage.dart';
-import 'package:cloudfinance/screens/sixthpage.dart';
-import 'package:cloudfinance/screens/thirdpage.dart';
 import 'package:flutter/material.dart';
+import 'package:ibidawinery/screens/eightpage.dart';
+import 'package:ibidawinery/screens/fifthpage.dart';
+import 'package:ibidawinery/screens/firstpage.dart';
+import 'package:ibidawinery/screens/fourthpage.dart';
+import 'package:ibidawinery/screens/ninethpage.dart';
+import 'package:ibidawinery/screens/secondpage.dart';
+import 'package:ibidawinery/screens/seventhpage.dart';
+import 'package:ibidawinery/screens/sixthpage.dart';
+import 'package:ibidawinery/screens/thirdpage.dart';
 
 List<Widget> pages = const [
   FirstPage(),

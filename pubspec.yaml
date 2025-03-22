@@ -1,4 +1,4 @@
-name: cloudfinance
+name: ibidawinery
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -7,9 +7,12 @@ environment:
   sdk: '>=3.1.0 <4.0.0'
 
 dependencies:
-  fl_chart: ^0.64.0
+  fl_chart: ^0.70.2
+  adaptive_theme: ^3.7.0 
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
