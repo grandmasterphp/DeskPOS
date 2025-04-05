@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 PreferredSizeWidget appBarr = AppBar(
   elevation: 1,
   shadowColor: const Color.fromARGB(255, 216, 214, 214),
-  surfaceTintColor: Colors.white,
-  backgroundColor: Colors.white,
+  // surfaceTintColor: Colors.white,
+  // backgroundColor: Colors.white,
   title: const Text(
     'Dashboard',
   ),
@@ -14,8 +14,8 @@ PreferredSizeWidget appBarr = AppBar(
       child: Form(
           child: TextFormField(
         decoration: const InputDecoration(
-            filled: true,
-            fillColor: Color.fromARGB(255, 247, 246, 246),
+            // filled: true,
+            // fillColor: Color.fromARGB(255, 247, 246, 246),
             isDense: true,
             contentPadding: EdgeInsets.all(0),
             prefixIcon: Icon(Icons.search),

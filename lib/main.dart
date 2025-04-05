@@ -1,23 +1,31 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ibidawinery/functions/app_theme.dart';
+import 'package:ibidawinery/providers/theme_provider.dart';
 import 'package:ibidawinery/screens/home.dart';
 
 void main() {
-  runApp(ProviderScope(
-    child: AdaptiveTheme(
-      light: ThemeData.light(
-        useMaterial3: true,
-      ),
-      dark: ThemeData.dark(useMaterial3: true),
-      initial: AdaptiveThemeMode.dark,
-      builder: (theme, darkTheme) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Ibida Winery',
-        theme: theme,
-        darkTheme: darkTheme,
-        home: const Home(),
-      ),
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
     ),
-  ));
+  );
+}
+
+class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appThemeState = ref.watch(appThemeStateNotifier);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode:
+          appThemeState.isDarkModeEnabled ? ThemeMode.dark : ThemeMode.light,
+      title: 'Ibida Winery',
+      home: const Home(),
+    );
+  }
 }

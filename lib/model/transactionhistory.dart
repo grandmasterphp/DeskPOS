@@ -13,7 +13,6 @@ class _TransactionHistoryState extends State<TransactionHistory> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
       child: Container(
-        color: Colors.white,
         child: Column(
           children: [
             Row(

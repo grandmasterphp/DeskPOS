@@ -35,12 +35,12 @@ class _TotalSavingsState extends State<TotalSavings> {
         ),
       ),
       SizedBox(
-        height: 350,
+        height: 340,
         child: Container(
             decoration: const BoxDecoration(
-              // borderRadius: BorderRadius.circular(15),
-              color: Color.fromARGB(255, 241, 240, 240),
-            ),
+                // borderRadius: BorderRadius.circular(15),
+                // color: Color.fromARGB(255, 241, 240, 240),
+                ),
             margin:
                 const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 10),
             padding: const EdgeInsets.all(20),

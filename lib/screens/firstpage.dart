@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ibidawinery/model/appbar.dart';
 import 'package:ibidawinery/model/barchart.dart';
 import 'package:ibidawinery/model/overviewcard.dart';
+import 'package:ibidawinery/model/responsive.dart';
 import 'package:ibidawinery/model/totalsavings.dart';
 
 class FirstPage extends StatelessWidget {
@@ -11,14 +12,21 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBarr,
+        endDrawer: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.25,
+          height: MediaQuery.of(context).size.height * 0.9,
+          child: const Column(
+            children: [
+              Card(color: Colors.white, child: SizedBox(child: TotalSavings())),
+            ],
+          ),
+        ),
         body: Padding(
           padding:
               const EdgeInsets.only(top: 15.0, right: 0, left: 10, bottom: 5),
-          child: Stack(
+          child: Row(
             children: [
-              Positioned(
-                top: 0,
-                left: 0,
+              SizedBox(
                 width: MediaQuery.of(context).size.width * 0.57,
                 height: MediaQuery.of(context).size.height,
                 child: Column(
@@ -73,7 +81,7 @@ class FirstPage extends StatelessWidget {
                     Flexible(
                         flex: 3,
                         child: Card(
-                          color: Colors.white,
+                          // color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: Column(
@@ -170,19 +178,11 @@ class FirstPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Positioned(
-                top: 0,
-                right: 0,
-                width: MediaQuery.of(context).size.width * 0.25,
-                height: MediaQuery.of(context).size.height * 0.9,
-                child: const Column(
-                  children: [
-                    Card(
-                        color: Colors.white,
-                        child: SizedBox(child: TotalSavings())),
-                  ],
+              if (!Responsive.isMobile(context))
+                const Expanded(
+                  flex: 3,
+                  child: Card(child: SizedBox(child: TotalSavings())),
                 ),
-              )
               // Latest Transactions
             ],
           ),

@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ibidawinery/constants/pages.dart';
 import 'package:ibidawinery/constants/sidemenu.dart';
+import 'package:ibidawinery/providers/theme_provider.dart';
 
-class Home extends StatefulWidget {
+class Home extends ConsumerStatefulWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  ConsumerState<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends ConsumerState<Home> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final appThemeState = ref.watch(appThemeStateNotifier);
     return Scaffold(
       body: Row(
         children: [
@@ -25,7 +28,7 @@ class _HomeState extends State<Home> {
                 child: NavigationDrawer(
                     surfaceTintColor: Colors.white,
                     selectedIndex: _selectedIndex,
-                    backgroundColor: Colors.white,
+                    // backgroundColor: Colors.white,
                     indicatorColor: const Color.fromRGBO(55, 124, 246, 1),
                     elevation: 1,
                     children: [
@@ -141,15 +144,21 @@ class _HomeState extends State<Home> {
                                   const Color.fromRGBO(55, 124, 246, 1),
                               selectedColor: Colors.white,
                               selected: _selectedIndex == 7,
-                              title: const Text.rich(TextSpan(children: [
+                              title: Text.rich(TextSpan(children: [
                                 WidgetSpan(
-                                    child: Icon(
-                                  Icons.image,
-                                  size: 19,
-                                )),
-                                TextSpan(
+                                    child: Switch(
+                                        value: appThemeState.isDarkModeEnabled,
+                                        onChanged: (enabled) {
+                                          if (enabled) {
+                                            appThemeState.setDarkTheme();
+                                          } else {
+                                            appThemeState.setLightTheme();
+                                          }
+                                        })),
+                                const TextSpan(
                                     text: ' Appearances',
-                                    style: TextStyle(fontSize: 14))
+                                    style: TextStyle(fontSize: 14),
+                                    children: [])
                               ])),
                               onTap: () {
                                 setState(() {
